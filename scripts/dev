@@ -1,0 +1,6 @@
+#!/bin/sh
+printf '\e[9;1t';
+tmux new-session \; split-window -v \; select-pane -t 0 \; resize-pane -D 20 \;
+printf '\e[8;24;80t';
+sleep 0.05;
+clear;
