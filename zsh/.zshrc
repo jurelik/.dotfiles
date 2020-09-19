@@ -110,6 +110,10 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+# two-hts-time-bot environment variables
+export ACCESS_TOKEN='NTU5NTA3NDQ0NTg2MzgxMzMy.D3msyg.LvGupFy_X8CgrIkzojwnug-Qttg'
+export DATABASE_URL='postgres://qukfyyhatvbhgp:ff556c2cdb1703d6e55b1f7cf953202e62af0e335ef59d30dc74f9459d23d0d5@ec2-54-75-231-215.eu-west-1.compute.amazonaws.com:5432/d2gk27f0scsq3h'
+
 #Custom commands
 alias python='python3'
 alias pip='pip3'

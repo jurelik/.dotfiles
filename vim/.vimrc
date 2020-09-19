@@ -58,6 +58,7 @@ set ttimeoutlen=50
 let g:gutentags_add_default_project_roots = 0
 let g:gutentags_project_root = ['package.json', '.git']
 let g:gutentags_generate_on_new = 0
+let g:gutentags_generate_on_write = 1
 
 "closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.js'
@@ -69,3 +70,11 @@ nnoremap \html :-1read $HOME/.vim/.skeleton.html<CR>8jo
 "performance when scrolling
 set ttyfast
 set regexpengine=1
+
+"coc.nvim
+set updatetime=300
+set nobackup
+set nowritebackup
+
+"disable 'Press Enter or type command to continue' message
+set shortmess=F
