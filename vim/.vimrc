@@ -78,3 +78,6 @@ set nowritebackup
 
 "disable 'Press Enter or type command to continue' message
 set shortmess=F
+
+"fix typescript syntax issue
+set re=0
