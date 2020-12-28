@@ -14,6 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-rooter'
 Plug 'alvan/vim-closetag'
+Plug 'tidalcycles/vim-tidal'
 
 call plug#end()"
 
@@ -61,8 +62,8 @@ let g:gutentags_generate_on_new = 0
 let g:gutentags_generate_on_write = 1
 
 "closetag
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.js'
-let g:closetag_filetypes = 'html,xhtml,phtml,js'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*tsx'
+let g:closetag_filetypes = 'html,xhtml,phtml,js,ts,tsx'
 
 "snippets
 nnoremap \html :-1read $HOME/.vim/.skeleton.html<CR>8jo
@@ -81,3 +82,6 @@ set shortmess=F
 
 "fix typescript syntax issue
 set re=0
+
+"tidalcycles config
+filetype plugin on

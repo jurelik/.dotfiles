@@ -1,0 +1,5 @@
+:script ~/.vim/plugged/vim-tidal/Tidal.ghci
+
+:{
+  let e = every
+:}

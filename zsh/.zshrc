@@ -110,6 +110,9 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+#vim-tidal custom config
+export TIDAL_BOOT_PATH=~/.customTidal.ghci
+
 #Custom commands
 alias python='python3'
 alias pip='pip3'
