@@ -14,7 +14,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-rooter'
 Plug 'alvan/vim-closetag'
-Plug 'tidalcycles/vim-tidal'
 
 call plug#end()"
 
@@ -25,6 +24,16 @@ inoremap <C-e> <C-o>$
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 nnoremap j gj
 nnoremap k gk
+
+"hardcore
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 "gruvbox
 set t_Co=256
@@ -42,6 +51,7 @@ set expandtab
 set title
 set laststatus=2
 set statusline=%{fugitive#statusline()}
+let g:airline_section_z='%p%%%#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__#%\ %#__accent_bold#%{g:airline_symbols.colnr}%v%#__restore__#'
 
 "indentLine
 let g:indentLine_char='¦'
@@ -67,6 +77,7 @@ let g:closetag_filetypes = 'html,xhtml,phtml,js,ts,tsx'
 
 "snippets
 nnoremap \html :-1read $HOME/.vim/.skeleton.html<CR>8jo
+nnoremap \try :-1read $HOME/.vim/.trycatch.js<CR>5jdd4kO
 
 "performance when scrolling
 set ttyfast
@@ -82,6 +93,3 @@ set shortmess=F
 
 "fix typescript syntax issue
 set re=0
-
-"tidalcycles config
-filetype plugin on
