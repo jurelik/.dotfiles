@@ -93,3 +93,6 @@ set shortmess=F
 
 "fix typescript syntax issue
 set re=0
+
+"enable spell-check in .md & .txt files
+autocmd BufRead,BufNewFile *.md,*.txt setlocal spell
