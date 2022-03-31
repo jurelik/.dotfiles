@@ -2,11 +2,10 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/indentLine'
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'vim-airline/vim-airline'
@@ -18,7 +17,7 @@ Plug 'alvan/vim-closetag'
 call plug#end()"
 
 "mappings
-map <silent> <C-n> :Lexplore<CR>
+"map <silent> <C-n> :Lexplore<CR> //phasing out netrw
 map <silent> <C-p> :FZF<CR>
 inoremap <C-e> <C-o>$
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -57,11 +56,11 @@ let g:airline_section_z='%p%%%#__accent_bold#%{g:airline_symbols.linenr}%l%#__re
 let g:indentLine_char='¦'
 let g:indentLine_color_term='241'
 
-"netrw
-let g:netrw_liststyle=3
-let g:netrw_banner=0
-let g:netrw_browse_split=4
-let g:netrw_winsize=15
+"netrw //phasing out
+"let g:netrw_liststyle=3
+"let g:netrw_banner=0
+"let g:netrw_browse_split=4
+"let g:netrw_winsize=15
 
 "gutentags
 set statusline+=%{gutentags#statusline()}
