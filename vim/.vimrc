@@ -17,7 +17,6 @@ Plug 'alvan/vim-closetag'
 call plug#end()"
 
 "mappings
-"map <silent> <C-n> :Lexplore<CR> //phasing out netrw
 map <silent> <C-p> :FZF<CR>
 inoremap <C-e> <C-o>$
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -56,12 +55,6 @@ let g:airline_section_z='%p%%%#__accent_bold#%{g:airline_symbols.linenr}%l%#__re
 let g:indentLine_char='¦'
 let g:indentLine_color_term='241'
 
-"netrw //phasing out
-"let g:netrw_liststyle=3
-"let g:netrw_banner=0
-"let g:netrw_browse_split=4
-"let g:netrw_winsize=15
-
 "gutentags
 set statusline+=%{gutentags#statusline()}
 set ttimeoutlen=50
@@ -86,6 +79,7 @@ set regexpengine=1
 set updatetime=300
 set nobackup
 set nowritebackup
+let g:coc_global_extensions = ['coc-clangd', 'coc-css', 'coc-html', 'coc-json', 'coc-tsserver']
 
 "disable 'Press Enter or type command to continue' message
 set shortmess=F
