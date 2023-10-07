@@ -1,18 +1,15 @@
 "vim-plug config"
 call plug#begin('~/.vim/plugged')
 
-Plug 'pangloss/vim-javascript'
-Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'n1ghtmare/noirblaze-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
+Plug 'deponian/vim-lightline-whitespace'
 Plug 'jiangmiao/auto-pairs'
-Plug 'airblade/vim-rooter'
-Plug 'alvan/vim-closetag'
 
 call plug#end()"
 
@@ -33,14 +30,12 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-"gruvbox
-set t_Co=256
-let g:gruvbox_sign_column='bg0'
-let g:gruvbox_invert_indent_guides=1
-colorscheme gruvbox
-set background=dark
+"theme
+syntax enable
+colorscheme noirblaze
 
 "appearance
+set cc=80
 set number
 set signcolumn=yes
 set tabstop=2
@@ -48,44 +43,42 @@ set shiftwidth=2
 set expandtab
 set title
 set laststatus=2
-set statusline=%{fugitive#statusline()}
-let g:airline_section_z='%p%%%#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__#%\ %#__accent_bold#%{g:airline_symbols.colnr}%v%#__restore__#'
+let g:lightline = {
+  \ 'colorscheme': 'noirblaze',
+  \ 'component_expand': { 'whitespace': 'lightline#whitespace#check' },
+  \ 'component_type': { 'whitespace': 'warning' },
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+  \   'right': [ [ 'whitespace' ],
+  \              [ 'lineinfo' ], 
+  \              [ 'percent' ],
+  \              [ 'fileformat', 'fileencoding', 'filetype' ],
+  \              [ 'gutentags' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'gitbranch#name',
+  \   'gutentags': 'gutentags#statusline'
+  \ },
+  \ }
 
 "indentLine
 let g:indentLine_char='¦'
 let g:indentLine_color_term='241'
 
 "gutentags
-set statusline+=%{gutentags#statusline()}
 set ttimeoutlen=50
 let g:gutentags_add_default_project_roots = 0
-let g:gutentags_project_root = ['package.json', '.git']
+let g:gutentags_project_root = ['.git']
 let g:gutentags_generate_on_new = 0
 let g:gutentags_generate_on_write = 1
-
-"closetag
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*tsx'
-let g:closetag_filetypes = 'html,xhtml,phtml,js,ts,tsx'
-
-"snippets
-nnoremap \html :-1read $HOME/.vim/.skeleton.html<CR>8jo
-nnoremap \try :-1read $HOME/.vim/.trycatch.js<CR>5jdd4kO
 
 "performance when scrolling
 set ttyfast
 set regexpengine=1
 
-"coc.nvim
-set updatetime=300
-set nobackup
-set nowritebackup
-let g:coc_global_extensions = ['coc-clangd', 'coc-css', 'coc-html', 'coc-json', 'coc-tsserver']
-
 "disable 'Press Enter or type command to continue' message
 set shortmess=F
-
-"fix typescript syntax issue
-set re=0
 
 "enable spell-check in .md & .txt files
 autocmd BufRead,BufNewFile *.md,*.txt setlocal spell
